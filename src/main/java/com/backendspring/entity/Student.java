@@ -1,5 +1,6 @@
 package com.backendspring.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,6 +11,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
 
 @Entity
 @Table(name = "students")
@@ -22,12 +24,13 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
-
     private String email;
-
     private String course;
-
     private Integer age;
+
+    @Builder.Default
+    @ColumnDefault("false")
+    @Column(name = "is_deleted", nullable = false)
+    private Boolean deleted = false;
 }

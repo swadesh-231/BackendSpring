@@ -29,7 +29,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public List<StudentResponse> getAllStudents() {
-        return studentRepository.findAll().stream()
+        return studentRepository.findByDeletedIsFalse().stream()
                 .map(studentMapper::toResponse)
                 .toList();
     }
@@ -55,11 +55,13 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void deleteStudent(Long id) {
-        studentRepository.delete(findStudent(id));
+        Student student = findStudent(id);
+        student.setDeleted(true);
+        studentRepository.save(student);
     }
 
     private Student findStudent(Long id) {
-        return studentRepository.findById(id)
+        return studentRepository.findByIdAndDeletedIsFalse(id)
                 .orElseThrow(() -> new StudentNotFoundException(id));
     }
 }
