@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: BackendSpring
+
+  datasource:
+    url: ${DB_URL}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+
+
