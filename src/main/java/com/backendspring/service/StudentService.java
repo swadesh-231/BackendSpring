@@ -1,5 +1,6 @@
 package com.backendspring.service;
 
+import com.backendspring.dto.StudentPatchRequest;
 import com.backendspring.dto.StudentRequest;
 import com.backendspring.dto.StudentResponse;
 
@@ -15,7 +16,7 @@ public interface StudentService {
 
     StudentResponse updateStudent(Long id, StudentRequest request);
 
-    StudentResponse patchStudent(Long id, StudentRequest request);
+    StudentResponse patchStudent(Long id, StudentPatchRequest request);
 
     void deleteStudent(Long id);
 }

@@ -1,5 +1,6 @@
 package com.backendspring.service;
 
+import com.backendspring.dto.StudentPatchRequest;
 import com.backendspring.dto.StudentRequest;
 import com.backendspring.dto.StudentResponse;
 import com.backendspring.entity.Student;
@@ -47,7 +48,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public StudentResponse patchStudent(Long id, StudentRequest request) {
+    public StudentResponse patchStudent(Long id, StudentPatchRequest request) {
         Student student = findStudent(id);
         studentMapper.patchEntity(student, request);
         return studentMapper.toResponse(studentRepository.save(student));

@@ -1,5 +1,6 @@
 package com.backendspring.mapper;
 
+import com.backendspring.dto.StudentPatchRequest;
 import com.backendspring.dto.StudentRequest;
 import com.backendspring.dto.StudentResponse;
 import com.backendspring.entity.Student;
@@ -34,7 +35,7 @@ public class StudentMapper {
         student.setAge(request.age());
     }
 
-    public void patchEntity(Student student, StudentRequest request) {
+    public void patchEntity(Student student, StudentPatchRequest request) {
         if (request.name() != null) {
             student.setName(request.name());
         }
