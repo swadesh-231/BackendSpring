@@ -5,6 +5,7 @@ import com.backendspring.dto.StudentRequest;
 import com.backendspring.dto.StudentResponse;
 import com.backendspring.service.StudentService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,14 +22,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/students")
+@RequiredArgsConstructor
 public class StudentController {
-
     private final StudentService studentService;
-
-    public StudentController(StudentService studentService) {
-        this.studentService = studentService;
-    }
-
     @PostMapping
     public ResponseEntity<StudentResponse> createStudent(@Valid @RequestBody StudentRequest request) {
         return ResponseEntity.ok(studentService.createStudent(request));
