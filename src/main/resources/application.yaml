@@ -9,5 +9,12 @@ spring:
     hibernate:
       ddl-auto: update
 
+  profiles:
+    active: prod
+
+app:
+  message: "Hello from default profile"
+
+
 
 
