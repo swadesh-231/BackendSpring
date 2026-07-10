@@ -1,5 +1,6 @@
-package com.backendspring.service;
+package com.backendspring.service.impl;
 
+import com.backendspring.service.NotificationService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 

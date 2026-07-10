@@ -1,4 +1,4 @@
-package com.backendspring.service;
+package com.backendspring.service.impl;
 
 import com.backendspring.dto.StudentPatchRequest;
 import com.backendspring.dto.StudentRequest;
@@ -8,6 +8,7 @@ import com.backendspring.exception.DuplicateEmailException;
 import com.backendspring.exception.StudentNotFoundException;
 import com.backendspring.mapper.StudentMapper;
 import com.backendspring.repository.StudentRepository;
+import com.backendspring.service.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
