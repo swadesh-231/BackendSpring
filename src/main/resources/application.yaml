@@ -9,6 +9,9 @@ spring:
     hibernate:
       ddl-auto: update
 
+server:
+  port: 8084
+
 #  profiles:
 #    active: prod
 
