@@ -1,5 +1,6 @@
 package com.backendspring.service.impl;
 
+import com.backendspring.aop.LogExecutionTime;
 import com.backendspring.dto.ManagerPatchRequest;
 import com.backendspring.dto.ManagerRequest;
 import com.backendspring.dto.ManagerResponse;
@@ -31,6 +32,7 @@ public class ManagerServiceImpl implements ManagerService {
     }
 
     @Override
+    @LogExecutionTime
     public List<ManagerResponse> getAllManagers() {
         return managerRepository.findByDeletedIsFalse().stream()
                 .map(managerMapper::toResponse)
